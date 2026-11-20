@@ -1,0 +1,114 @@
+{
+  "set": "all",
+  "paths": [
+    "tests/manual",
+    "tests/generated"
+  ],
+  "started_at": "2026-11-20T21:21:36.631833+00:00",
+  "mutants_file": "mutants.toml",
+  "mutants_git": {
+    "committed_at": "2026-11-20T22:33:34+02:00",
+    "commit": "709870c",
+    "uncommitted": false,
+    "head": "2153ca0"
+  },
+  "killed": 10,
+  "total": 12,
+  "mutation_score": 0.8333,
+  "by_class": {
+    "значення тіру": {
+      "total": 3,
+      "killed": 1
+    },
+    "межа EUR 1 000": {
+      "total": 3,
+      "killed": 3
+    },
+    "арифметика": {
+      "total": 3,
+      "killed": 3
+    },
+    "форма результату": {
+      "total": 3,
+      "killed": 3
+    }
+  },
+  "survived": [
+    "A-02",
+    "A-03"
+  ],
+  "rows": [
+    {
+      "id": "A-01",
+      "class": "значення тіру",
+      "description": "клієнт tier2 платить 1.5 % замість 0.9 % (наслідок як у дефекту D20)",
+      "killed": true
+    },
+    {
+      "id": "A-02",
+      "class": "значення тіру",
+      "description": "клієнт tier3 платить спред 0.9 % замість 0.5 %",
+      "killed": false
+    },
+    {
+      "id": "A-03",
+      "class": "значення тіру",
+      "description": "безкоштовний місячний ліміт tier1 EUR 5 000 замість EUR 500",
+      "killed": false
+    },
+    {
+      "id": "B-01",
+      "class": "межа EUR 1 000",
+      "description": "рівно на межі ліміту (<= → <) безкоштовна конвертація стає платною",
+      "killed": true
+    },
+    {
+      "id": "B-02",
+      "class": "межа EUR 1 000",
+      "description": "безкоштовний ліміт tier2 EUR 999 замість EUR 1 000",
+      "killed": true
+    },
+    {
+      "id": "B-03",
+      "class": "межа EUR 1 000",
+      "description": "ліміт не враховує вже використане за місяць: порівнюється лише сума поточної операції",
+      "killed": true
+    },
+    {
+      "id": "C-01",
+      "class": "арифметика",
+      "description": "курс обернено: from/to міняються місцями",
+      "killed": true
+    },
+    {
+      "id": "C-02",
+      "class": "арифметика",
+      "description": "спред додається до суми замість віднімання",
+      "killed": true
+    },
+    {
+      "id": "C-03",
+      "class": "арифметика",
+      "description": "частковий ліміт: надлишок рахується від повного ліміту, а не від залишку",
+      "killed": true
+    },
+    {
+      "id": "D-01",
+      "class": "форма результату",
+      "description": "as_dict() округлює до 2 знаків замість 6",
+      "killed": true
+    },
+    {
+      "id": "D-02",
+      "class": "форма результату",
+      "description": "as_dict() повертає дробові значення рядком замість числа",
+      "killed": true
+    },
+    {
+      "id": "D-03",
+      "class": "форма результату",
+      "description": "поле allowance_applied у котируванні інвертовано",
+      "killed": true
+    }
+  ]
+}
